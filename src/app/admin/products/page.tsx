@@ -30,7 +30,7 @@ export default async function ProductsPage() {
 
 async function getProducts() {
   "use cache"
-  cacheTag(getProductGlobalTag())
+  cache(getProductGlobalTag())
 
   return db
     .select({

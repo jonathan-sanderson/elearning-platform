@@ -45,7 +45,7 @@ export default async function ProductPurchaseSuccessPage({
 
 async function getPublicProduct(id: string) {
   "use cache"
-  cacheTag(getProductIdTag(id))
+  cache(getProductIdTag(id))
 
   return db.query.ProductTable.findFirst({
     columns: {

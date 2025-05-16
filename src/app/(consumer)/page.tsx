@@ -22,7 +22,7 @@ export default async function HomePage() {
 
 async function getPublicProducts() {
   "use cache"
-  cacheTag(getProductGlobalTag())
+  cache(getProductGlobalTag())
 
   return db.query.ProductTable.findMany({
     columns: {

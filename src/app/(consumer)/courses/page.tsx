@@ -129,7 +129,7 @@ function SkeletonCourseCard() {
 
 async function getUserCourses(userId: string) {
   "use cache"
-  cacheTag(
+  cache(
     getUserCourseAccessUserTag(userId),
     getUserLessonCompleteUserTag(userId)
   )
@@ -173,7 +173,7 @@ async function getUserCourses(userId: string) {
     .groupBy(CourseTable.id)
 
   courses.forEach(course => {
-    cacheTag(
+    cache(
       getCourseIdTag(course.id),
       getCourseSectionCourseTag(course.id),
       getLessonCourseTag(course.id)

@@ -17,7 +17,7 @@ export default async function NewProductPage() {
 
 async function getCourses() {
   "use cache"
-  cacheTag(getCourseGlobalTag())
+  cache(getCourseGlobalTag())
 
   return db.query.CourseTable.findMany({
     orderBy: asc(CourseTable.name),

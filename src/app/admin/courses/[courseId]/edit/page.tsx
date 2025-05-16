@@ -102,7 +102,7 @@ export default async function EditCoursePage({
 
 async function getCourse(id: string) {
   "use cache"
-  cacheTag(
+  cache(
     getCourseIdTag(id),
     getCourseSectionCourseTag(id),
     getLessonCourseTag(id)

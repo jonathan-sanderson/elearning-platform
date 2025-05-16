@@ -17,10 +17,10 @@ export async function canUpdateUserLessonCompleteStatus(
   lessonId: string
 ) {
   "use cache"
-  cacheTag(getLessonIdTag(lessonId))
+  cache(getLessonIdTag(lessonId))
   if (user.userId == null) return false
 
-  cacheTag(getUserCourseAccessUserTag(user.userId))
+  cache(getUserCourseAccessUserTag(user.userId))
 
   const [courseAccess] = await db
     .select({ courseId: CourseTable.id })

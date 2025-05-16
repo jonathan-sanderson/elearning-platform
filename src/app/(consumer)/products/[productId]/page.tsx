@@ -193,7 +193,7 @@ async function Price({ price }: { price: number }) {
 
 async function getPublicProduct(id: string) {
   "use cache"
-  cacheTag(getProductIdTag(id))
+  cache(getProductIdTag(id))
 
   const product = await db.query.ProductTable.findFirst({
     columns: {
@@ -232,7 +232,7 @@ async function getPublicProduct(id: string) {
 
   if (product == null) return product
 
-  cacheTag(
+  cache(
     ...product.courseProducts.flatMap(cp => [
       getLessonCourseTag(cp.course.id),
       getCourseSectionCourseTag(cp.course.id),

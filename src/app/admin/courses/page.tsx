@@ -34,7 +34,7 @@ export default async function CoursesPage() {
 
 async function getCourses() {
   "use cache"
-  cacheTag(
+  cache(
     getCourseGlobalTag(),
     getUserCourseAccessGlobalTag(),
     getCourseSectionGlobalTag(),

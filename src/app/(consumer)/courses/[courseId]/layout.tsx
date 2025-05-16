@@ -47,7 +47,7 @@ export default async function CoursePageLayout({
 
 async function getCourse(id: string) {
   "use cache"
-  cacheTag(
+  cache(
     getCourseIdTag(id),
     getCourseSectionCourseTag(id),
     getLessonCourseTag(id)
@@ -101,7 +101,7 @@ async function SuspenseBoundary({
 
 async function getCompletedLessonIds(userId: string) {
   "use cache"
-  cacheTag(getUserLessonCompleteUserTag(userId))
+  cache(getUserLessonCompleteUserTag(userId))
 
   const data = await db.query.UserLessonCompleteTable.findMany({
     columns: { lessonId: true },

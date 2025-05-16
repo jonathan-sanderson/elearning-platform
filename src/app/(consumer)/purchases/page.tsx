@@ -46,7 +46,7 @@ async function SuspenseBoundary() {
 
 async function getPurchases(userId: string) {
   "use cache"
-  cacheTag(getPurchaseUserTag(userId))
+  cache(getPurchaseUserTag(userId))
 
   return db.query.PurchaseTable.findMany({
     columns: {

@@ -26,7 +26,7 @@ export default async function CoursePage({
 
 async function getCourse(id: string) {
   "use cache"
-  cacheTag(getCourseIdTag(id))
+  cache(getCourseIdTag(id))
 
   return db.query.CourseTable.findFirst({
     columns: { id: true, name: true, description: true },

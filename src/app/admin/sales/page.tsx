@@ -21,7 +21,7 @@ export default async function PurchasesPage() {
 
 async function getPurchases() {
   "use cache"
-  cacheTag(getPurchaseGlobalTag(), getUserGlobalTag())
+  cache(getPurchaseGlobalTag(), getUserGlobalTag())
 
   return db.query.PurchaseTable.findMany({
     columns: {

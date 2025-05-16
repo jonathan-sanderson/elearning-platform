@@ -34,7 +34,7 @@ export default async function EditProductPage({
 
 async function getCourses() {
   "use cache"
-  cacheTag(getCourseGlobalTag())
+  cache(getCourseGlobalTag())
 
   return db.query.CourseTable.findMany({
     orderBy: asc(CourseTable.name),
@@ -44,7 +44,7 @@ async function getCourses() {
 
 async function getProduct(id: string) {
   "use cache"
-  cacheTag(getProductIdTag(id))
+  cache(getProductIdTag(id))
 
   return db.query.ProductTable.findFirst({
     columns: {

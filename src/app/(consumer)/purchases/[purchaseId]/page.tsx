@@ -115,7 +115,7 @@ async function SuspenseBoundary({ purchaseId }: { purchaseId: string }) {
 
 async function getPurchase({ userId, id }: { userId: string; id: string }) {
   "use cache"
-  cacheTag(getPurchaseIdTag(id))
+  cache(getPurchaseIdTag(id))
 
   return db.query.PurchaseTable.findFirst({
     columns: {

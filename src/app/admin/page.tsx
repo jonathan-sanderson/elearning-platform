@@ -82,7 +82,7 @@ function StatCard({ title, children }: { title: string; children: ReactNode }) {
 
 async function getPurchaseDetails() {
   "use cache"
-  cacheTag(getPurchaseGlobalTag())
+  cache(getPurchaseGlobalTag())
 
   const data = await db
     .select({
@@ -119,7 +119,7 @@ async function getPurchaseDetails() {
 
 async function getTotalStudents() {
   "use cache"
-  cacheTag(getUserCourseAccessGlobalTag())
+  cache(getUserCourseAccessGlobalTag())
 
   const [data] = await db
     .select({ totalStudents: countDistinct(UserCourseAccessTable.userId) })
@@ -131,7 +131,7 @@ async function getTotalStudents() {
 
 async function getTotalCourses() {
   "use cache"
-  cacheTag(getCourseGlobalTag())
+  cache(getCourseGlobalTag())
 
   const [data] = await db
     .select({ totalCourses: count(CourseTable.id) })
@@ -143,7 +143,7 @@ async function getTotalCourses() {
 
 async function getTotalProducts() {
   "use cache"
-  cacheTag(getProductGlobalTag())
+  cache(getProductGlobalTag())
 
   const [data] = await db
     .select({ totalProducts: count(ProductTable.id) })
@@ -154,7 +154,7 @@ async function getTotalProducts() {
 
 async function getTotalLessons() {
   "use cache"
-  cacheTag(getLessonGlobalTag())
+  cache(getLessonGlobalTag())
 
   const [data] = await db
     .select({ totalLessons: count(LessonTable.id) })
@@ -165,7 +165,7 @@ async function getTotalLessons() {
 
 async function getTotalCourseSections() {
   "use cache"
-  cacheTag(getCourseSectionGlobalTag())
+  cache(getCourseSectionGlobalTag())
 
   const [data] = await db
     .select({ totalCourseSections: count(CourseSectionTable.id) })

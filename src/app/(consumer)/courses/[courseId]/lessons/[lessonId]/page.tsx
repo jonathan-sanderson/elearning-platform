@@ -273,7 +273,7 @@ async function getNextLesson(lesson: {
 
 async function getLesson(id: string) {
   "use cache"
-  cacheTag(getLessonIdTag(id))
+  cache(getLessonIdTag(id))
 
   return db.query.LessonTable.findFirst({
     columns: {
@@ -297,7 +297,7 @@ async function getIsLessonComplete({
   lessonId: string
 }) {
   "use cache"
-  cacheTag(getUserLessonCompleteIdTag({ userId, lessonId }))
+  cache(getUserLessonCompleteIdTag({ userId, lessonId }))
 
   const data = await db.query.UserLessonCompleteTable.findFirst({
     where: and(
