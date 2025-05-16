@@ -4,7 +4,7 @@ import { CourseTable } from "@/drizzle/schema"
 import { getCourseGlobalTag } from "@/features/courses/db/cache/courses"
 import { ProductForm } from "@/features/products/components/ProductForm"
 import { asc } from "drizzle-orm"
-import { cacheTag } from "next/dist/server/use-cache/cache-tag"
+import { unstable_cache as cache } from "next/cache"
 
 export default async function NewProductPage() {
   return (

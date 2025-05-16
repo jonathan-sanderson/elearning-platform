@@ -11,7 +11,7 @@ import { getUserCourseAccessUserTag } from "@/features/courses/db/cache/userCour
 import { wherePublicCourseSections } from "@/features/courseSections/permissions/sections"
 import { and, eq, or } from "drizzle-orm"
 import { getLessonIdTag } from "../db/cache/lessons"
-import { cacheTag } from "next/dist/server/use-cache/cache-tag"
+import { unstable_cache as cache } from "next/cache"
 
 export function canCreateLessons({ role }: { role: UserRole | undefined }) {
   return role === "admin"

@@ -9,7 +9,7 @@ import { getCurrentUser } from "@/services/clerk"
 import { StripeCheckoutForm } from "@/services/stripe/components/StripeCheckoutForm"
 import { SignIn, SignUp } from "@clerk/nextjs"
 import { and, eq } from "drizzle-orm"
-import { cacheTag } from "next/dist/server/use-cache/cache-tag"
+import { unstable_cache as cache } from "next/cache"
 import { notFound, redirect } from "next/navigation"
 import { Suspense } from "react"
 

@@ -21,7 +21,7 @@ import { getProductGlobalTag } from "@/features/products/db/cache"
 import { getPurchaseGlobalTag } from "@/features/purchases/db/cache"
 import { formatNumber, formatPrice } from "@/lib/formatters"
 import { count, countDistinct, isNotNull, sql, sum } from "drizzle-orm"
-import { cacheTag } from "next/dist/server/use-cache/cache-tag"
+import { unstable_cache as cache } from "next/cache"
 import { ReactNode } from "react"
 
 export default async function AdminPage() {

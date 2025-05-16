@@ -4,7 +4,7 @@ import { ProductCard } from "@/features/products/components/ProductCard"
 import { getProductGlobalTag } from "@/features/products/db/cache"
 import { wherePublicProducts } from "@/features/products/permissions/products"
 import { asc } from "drizzle-orm"
-import { cacheTag } from "next/dist/server/use-cache/cache-tag"
+import { unstable_cache as cache } from "next/cache"
 
 export default async function HomePage() {
   const products = await getPublicProducts()

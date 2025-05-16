@@ -4,7 +4,7 @@ import { ProductTable } from "@/drizzle/schema"
 import { getProductIdTag } from "@/features/products/db/cache"
 import { wherePublicProducts } from "@/features/products/permissions/products"
 import { and, eq } from "drizzle-orm"
-import { cacheTag } from "next/dist/server/use-cache/cache-tag"
+import { unstable_cache as cache } from "next/cache"
 import Image from "next/image"
 import Link from "next/link"
 

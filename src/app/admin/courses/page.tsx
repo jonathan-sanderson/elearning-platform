@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button"
 import { PageHeader } from "@/components/PageHeader"
 import Link from "next/link"
 import { CourseTable } from "@/features/courses/components/CourseTable"
-import { cacheTag } from "next/dist/server/use-cache/cache-tag"
+import { unstable_cache as cache } from "next/cache"
 import { getCourseGlobalTag } from "@/features/courses/db/cache/courses"
 import { db } from "@/drizzle/db"
 import {

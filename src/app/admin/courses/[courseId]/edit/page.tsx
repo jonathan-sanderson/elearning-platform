@@ -16,7 +16,7 @@ import { getLessonCourseTag } from "@/features/lessons/db/cache/lessons"
 import { cn } from "@/lib/utils"
 import { asc, eq } from "drizzle-orm"
 import { EyeClosed, PlusIcon } from "lucide-react"
-import { cacheTag } from "next/dist/server/use-cache/cache-tag"
+import { unstable_cache as cache } from "next/cache"
 import { notFound } from "next/navigation"
 
 export default async function EditCoursePage({
