@@ -6,7 +6,14 @@ import { eq } from "drizzle-orm"
 import { unstable_cache as cache } from "next/cache"
 import { redirect } from "next/navigation"
 
-const client = await clerkClient()
+let _client: Awaited<ReturnType<typeof clerkClient>> | undefined
+
+async function getClient() {
+  if (!_client) {
+    _client = await clerkClient()
+  }
+  return _client
+}
 
 export async function getCurrentUser({ allData = false } = {}) {
   const { userId, sessionClaims, redirectToSignIn } = await auth()
@@ -27,11 +34,12 @@ export async function getCurrentUser({ allData = false } = {}) {
   }
 }
 
-export function syncClerkUserMetadata(user: {
+export async function syncClerkUserMetadata(user: {
   id: string
   clerkUserId: string
   role: UserRole
 }) {
+  const client = await getClient()
   return client.users.updateUserMetadata(user.clerkUserId, {
     publicMetadata: {
       dbId: user.id,
@@ -42,7 +50,7 @@ export function syncClerkUserMetadata(user: {
 
 async function getUser(id: string) {
   "use cache"
-  cacheTag(getUserIdTag(id))
+  cache(getUserIdTag(id))
   console.log("Called")
 
   return db.query.UserTable.findFirst({
